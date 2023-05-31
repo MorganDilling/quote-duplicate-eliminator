@@ -124,7 +124,11 @@
         If a comparison of two quotes is more than, or equal to {similarityPercentage}
         per cent similar, it will not be added to the results.
       </p>
-      <textarea bind:value={quotes} on:input={textAreaChange} />
+      <textarea
+        bind:value={quotes}
+        on:input={textAreaChange}
+        placeholder="Type quotes here..."
+      />
 
       <br />
       <br />
@@ -133,7 +137,12 @@
   </div>
   <div>
     <p>Removed duplicates:</p>
-    <textarea bind:value={result} readonly id="result" />
+    <textarea
+      bind:value={result}
+      readonly
+      id="result"
+      placeholder="Results will generate here..."
+    />
   </div>
 </main>
 <p style="position: fixed; left: 0; bottom: 0; padding: 0; margin: 0;">
