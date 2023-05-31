@@ -104,7 +104,7 @@
     <form on:submit|preventDefault={submit}>
       <p>
         Input quotes below. Make sure that quotes are surrounded by speech marks
-        (") and are on separate lines.
+        and are on separate lines.
         <br />
         It will match any of the following quotation mark types:
       </p>
