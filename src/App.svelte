@@ -118,6 +118,8 @@
           type="number"
           on:change={similarityChange}
           value={similarityPercentage}
+          min="0"
+          max="100"
         />%
       </p>
       <p>
