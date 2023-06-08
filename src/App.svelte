@@ -229,7 +229,7 @@
   <div class="decision-modal-bg">
     <div class="decision-modal" id="modal">
       <div class="decision-progress">
-        <div class="decision-current">{currentDecision}</div>
+        <div class="decision-current">{currentDecision + 1}</div>
         <div class="decision-slash">/</div>
         <div class="decision-total">{totalDecisions}</div>
       </div>
