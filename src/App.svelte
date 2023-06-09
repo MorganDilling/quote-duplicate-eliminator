@@ -164,14 +164,6 @@
 
     const resultTextArea = document.getElementById('result');
     const nLines = uniqueTokens.length;
-
-    resultTextArea.style.height = `${Math.max(nLines * 21, 50)}px`;
-  };
-
-  const textAreaChange = (e): void => {
-    const nLines = e.target.value.split('\n').length;
-
-    e.target.style.height = `${Math.max(nLines * 21, 50)}px`;
   };
 </script>
 
@@ -201,11 +193,7 @@
         If a comparison of two quotes is more than, or equal to {similarityPercentage}
         per cent similar, you will be asked what to do.
       </p>
-      <textarea
-        bind:value={quotes}
-        on:input={textAreaChange}
-        placeholder="Type quotes here..."
-      />
+      <textarea bind:value={quotes} placeholder="Type quotes here..." />
 
       <br />
       <br />
@@ -320,7 +308,7 @@
 
   textarea {
     line-height: 21px;
-    overflow-y: hidden;
+    overflow-y: scroll;
     padding: 5px;
     border: 0;
     background: #474747;
@@ -328,7 +316,7 @@
     outline: none;
     resize: none;
     width: 100%;
-    height: 50px;
+    height: 300px;
   }
 
   @media (max-width: 768px) {
