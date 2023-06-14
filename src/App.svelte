@@ -103,12 +103,7 @@
     e.target.value = similarityPercentage;
   };
 
-  const submit = async (e: SubmitEvent): Promise<void> => {
-    let tokens = tokeniseQuotes(quotes);
-    if (!tokens) {
-      result = '';
-      return;
-    }
+  const filter = async (tokens: string[]): Promise<string[]> => {
     const uniqueTokens: string[] = [];
 
     while (true) {
@@ -152,18 +147,27 @@
 
       tokens = tokens.filter((_, i) => !indexesToRemove.includes(i));
 
-      console.log(tokens);
-
       if (shouldPush) uniqueTokens.push(token);
     }
+
+    return uniqueTokens;
+  };
+
+  const submit = async (e: SubmitEvent): Promise<void> => {
+    let tokens = tokeniseQuotes(quotes);
+    if (!tokens) {
+      result = '';
+      return;
+    }
+
+    const fileredTokensPass1 = await filter(tokens);
+
+    const uniqueTokens = await filter(fileredTokensPass1);
 
     result = uniqueTokens.join('\n');
     if (uniqueTokens.length === 0) {
       result = '';
     }
-
-    const resultTextArea = document.getElementById('result');
-    const nLines = uniqueTokens.length;
   };
 </script>
 
@@ -216,11 +220,6 @@
 {#if decisionModalShown}
   <div class="decision-modal-bg">
     <div class="decision-modal" id="modal">
-      <div class="decision-progress">
-        <div class="decision-current">{currentDecision + 1}</div>
-        <div class="decision-slash">/</div>
-        <div class="decision-total">{totalDecisions}</div>
-      </div>
       <h2>
         These quotes look similar. <br />What would you like to do?
         <br />
@@ -241,33 +240,6 @@
 {/if}
 
 <style>
-  .decision-progress {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 40px;
-    height: 40px;
-  }
-
-  .decision-current {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .decision-total {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-
-  .decision-slash {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
   .decision-modal-bg {
     position: fixed;
     top: 0;
