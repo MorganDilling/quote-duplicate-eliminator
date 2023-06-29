@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@sveltejs/vite-plugin-svelte': ^2.0.4
-  '@tsconfig/svelte': ^4.0.1
+  '@tsconfig/svelte': ^5.0.0
   svelte: ^3.58.0
   svelte-check: ^3.3.1
   tslib: ^2.5.0
@@ -11,7 +11,7 @@ specifiers:
 
 devDependencies:
   '@sveltejs/vite-plugin-svelte': 2.4.1_svelte@3.59.1+vite@4.3.9
-  '@tsconfig/svelte': 4.0.1
+  '@tsconfig/svelte': 5.0.0
   svelte: 3.59.1
   svelte-check: 3.4.3_svelte@3.59.1
   tslib: 2.5.2
@@ -295,8 +295,8 @@ packages:
       - supports-color
     dev: true
 
-  /@tsconfig/svelte/4.0.1:
-    resolution: {integrity: sha512-B+XlGpmuAQzJqDoBATNCvEPqQg0HkO7S8pM14QDI5NsmtymzRexQ1N+nX2H6RTtFbuFgaZD4I8AAi8voGg0GLg==}
+  /@tsconfig/svelte/5.0.0:
+    resolution: {integrity: sha512-iu5BqFjU0+OcLTNQp7fHe6Bf6zdNeJ9IZjLZMqWLuGzVFm/xx+lm//Tf6koPyRmxo55/Snm6RRQ990n89cRKFw==}
     dev: true
 
   /@types/pug/2.0.6:
